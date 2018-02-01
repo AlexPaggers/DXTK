@@ -5,6 +5,7 @@
 #include "pch.h"
 #include "Game.h"
 #include "SimpleMath.h"
+#include "Tile.h"
 
 extern void ExitGame();
 
@@ -29,7 +30,7 @@ void Game::Initialize(HWND window, int width, int height)
 
     CreateDevice();
 
-    CreateResources();
+    CreateResources() ;
 
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
     // e.g. for 60 FPS fixed timestep update logic, call:
@@ -37,6 +38,17 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
+
+	float AR = (float)width / (float)height;
+
+	m_cam = new Camera(0.25f * XM_PI, AR, 1.0f, 10000.0f, Vector3::UnitY, Vector3::Zero);
+
+	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
+
+	t_tile = new Tile(m_d3dDevice.Get());
+
+	m_GameObjects.push_back(t_tile);
+
 }
 
 // Executes the basic game loop.
@@ -71,6 +83,15 @@ void Game::Render()
     Clear();
 
     // TODO: Add your rendering code here.
+
+	m_spriteBatch->Begin();
+
+	for (auto& tile : m_GameObjects)
+	{
+		m_spriteBatch->Draw(tile->GetTexture(), tile->GetPos());
+	}
+
+	m_spriteBatch->End();
 
     Present();
 }
@@ -321,6 +342,7 @@ void Game::OnDeviceLost()
     m_swapChain.Reset();
     m_d3dContext.Reset();
     m_d3dDevice.Reset();
+	m_spriteBatch.reset();
 
     CreateDevice();
 

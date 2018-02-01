@@ -1,3 +1,2 @@
-﻿  Game.cpp
-     Creating library E:\DXTK\DXTK\Debug\DXTK.lib and object E:\DXTK\DXTK\Debug\DXTK.exp
-  DXTK.vcxproj -> E:\DXTK\DXTK\Debug\DXTK.exe
+﻿  pch.cpp
+c:\program files (x86)\windows kits\8.1\include\um\winnt.h(31): fatal error C1083: Cannot open include file: 'ctype.h': No such file or directory

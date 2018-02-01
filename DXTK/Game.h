@@ -5,7 +5,14 @@
 #pragma once
 
 #include "StepTimer.h"
+#include "GameData.h"
+#include "GameObject.h"
+#include "Camera.h"
+#include "SpriteBatch.h"
 
+#include <vector>
+
+class Tile;
 
 // A basic game implementation that creates a D3D11 device and
 // provides a game loop.
@@ -59,4 +66,13 @@ private:
 
     // Rendering loop timer.
     DX::StepTimer                                   m_timer;
+
+	std::vector<Tile*> m_GameObjects;
+
+	Camera * m_cam;
+
+	std::unique_ptr<SpriteBatch> m_spriteBatch;
+
+	Tile * t_tile;
+
 };
