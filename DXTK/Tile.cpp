@@ -10,7 +10,7 @@ Tile::Tile(ID3D11Device * _device)
 	m_shaderresource->GetResource(&r);
 	static_cast<ID3D11Texture2D*>(r)->GetDesc(&desc);
 
-	m_texture
+	
 }
 
 
