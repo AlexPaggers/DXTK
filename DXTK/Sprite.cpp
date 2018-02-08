@@ -1,9 +1,12 @@
+#include "pch.h"
 #include "Sprite.h"
 #include <DDSTextureLoader.h>
 
 Sprite::Sprite(const wchar_t* _file_name, ID3D11Device* _d3d_device)
 {
+	
 	HRESULT hr = DirectX::CreateDDSTextureFromFile(_d3d_device, _file_name, nullptr, &m_sprite_rv);
+
 
 	// Find size of image.
 	ID3D11Resource *pResource;

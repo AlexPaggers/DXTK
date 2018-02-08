@@ -1,7 +1,18 @@
 #pragma once
 #include "GameObject.h"
 #include "DDSTextureLoader.h"
-#include "Sprite.h"
+#include <memory>
+
+
+class Sprite;
+
+enum TileID
+{
+	GRASS = 0,
+	ROCK = 1,
+	TREE = 3,
+
+};
 
 class Tile :
 	public GameObject
@@ -10,7 +21,9 @@ public:
 	Tile(ID3D11Device * _device);
 	~Tile();
 
-	ID3D11ShaderResourceView* GetTexture() { return m_texture.Get(); }
+	void CreateSprite(ID3D11Device * _device);
+
+	ID3D11ShaderResourceView* GetTexture();
 
 private:
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;

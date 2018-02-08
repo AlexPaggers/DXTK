@@ -1,15 +1,10 @@
 #include "pch.h"
 #include "Tile.h"
 #include "DDSTextureLoader.h"
+#include "Sprite.h"
 
 Tile::Tile(ID3D11Device * _device)
 {
-	HRESULT hr = DirectX::CreateDDSTextureFromFile(_device, L"../Textures/testimage.dds", nullptr, &m_shaderresource);
-
-	ID3D11Resource* r;
-	m_shaderresource->GetResource(&r);
-	static_cast<ID3D11Texture2D*>(r)->GetDesc(&desc);
-
 	
 }
 
@@ -17,4 +12,16 @@ Tile::Tile(ID3D11Device * _device)
 Tile::~Tile()
 {
 	m_texture.Reset();
+	m_sprite = nullptr;
+	delete m_sprite;
+}
+
+void Tile::CreateSprite(ID3D11Device * _device)
+{
+	m_sprite = new Sprite((L"D:/DXTK/DXTK/Textures/testimage.dds"), _device);
+}
+
+ID3D11ShaderResourceView * Tile::GetTexture()
+{
+	return m_sprite->getResourceView();
 }
