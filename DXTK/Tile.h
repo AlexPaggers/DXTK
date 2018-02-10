@@ -18,7 +18,7 @@ class Tile :
 	public GameObject
 {
 public:
-	Tile(ID3D11Device * _device);
+	Tile(ID3D11Device * _device, int _tileID, float _posX, float _posY);
 	~Tile();
 
 	void CreateSprite(ID3D11Device * _device);
@@ -29,6 +29,8 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
 	
 	Sprite * m_sprite;
+
+	int m_tileID;
 
 	D3D11_TEXTURE2D_DESC desc;
 };

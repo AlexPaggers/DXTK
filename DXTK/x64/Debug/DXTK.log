@@ -1,21 +1,7 @@
-﻿Build started 08/02/2018 20:05:28.
-     1>Project "D:\DXTK\DXTK\DXTK.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\CL.exe /c /ID:\DXTK\packages\directxtk_desktop_2015.2017.12.13.1\build\native\../..//build/native/include/ /ZI /nologo /W3 /WX- /Od /D HAS_DIRECTXTK /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"pch.h" /Fp"x64\Debug\DXTK.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Tile.cpp
-         Tile.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\DXTK\x64\Debug\DXTK.exe" /INCREMENTAL /NOLOGO D:\DXTK\packages\directxtk_desktop_2015.2017.12.13.1\build\native\../..//build/native/lib/x64\Debug\DirectXTKAudioDX.lib D:\DXTK\packages\directxtk_desktop_2015.2017.12.13.1\build\native\../..//build/native/lib/x64\Debug\DirectXTK.lib d3d11.lib dxguid.lib uuid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:settings.manifest /Debug /PDB:"D:\DXTK\x64\Debug\DXTK.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\DXTK\x64\Debug\DXTK.lib" /MACHINE:X64 x64\Debug\resource.res
-         x64\Debug\Camera.obj
-         x64\Debug\Game.obj
-         x64\Debug\GameObject.obj
-         x64\Debug\Main.obj
-         x64\Debug\pch.obj
-         x64\Debug\Sprite.obj
-         x64\Debug\Tile.obj
-            Creating library D:\DXTK\x64\Debug\DXTK.lib and object D:\DXTK\x64\Debug\DXTK.exp
-         DXTK.vcxproj -> D:\DXTK\x64\Debug\DXTK.exe
-     1>Done Building Project "D:\DXTK\DXTK\DXTK.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.70
+﻿  Game.cpp
+  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+e:\dxtk\dxtk\dxtk\game.cpp(48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\dxtk\dxtk\dxtk\game.cpp(51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\dxtk\dxtk\dxtk\game.cpp(54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  DXTK.vcxproj -> E:\DXTK\DXTK\x64\Debug\DXTK.exe
+  DXTK.vcxproj -> E:\DXTK\DXTK\x64\Debug\DXTK.pdb (Full PDB)

@@ -2,10 +2,17 @@
 #include "Tile.h"
 #include "DDSTextureLoader.h"
 #include "Sprite.h"
+#include <string>
 
-Tile::Tile(ID3D11Device * _device)
+Tile::Tile(ID3D11Device * _device, int _tileID, float _posX, float _posY)
 {
-	
+	m_pos.x = _posX;
+	m_pos.y = _posY;
+
+	m_tileID = _tileID;
+
+	CreateSprite(_device);
+
 }
 
 
@@ -18,7 +25,9 @@ Tile::~Tile()
 
 void Tile::CreateSprite(ID3D11Device * _device)
 {
-	m_sprite = new Sprite((L"D:/DXTK/DXTK/Textures/testimage.dds"), _device);
+	std::wstring _filepath = (L"E:/DXTK/DXTK/DXTK/Textures/" + std::to_wstring(m_tileID) + L".dds");
+
+	m_sprite = new Sprite(_filepath.c_str(), _device);
 }
 
 ID3D11ShaderResourceView * Tile::GetTexture()

@@ -75,4 +75,8 @@ private:
 
 	Tile * t_tile;
 
+	Tile * t_tile1;
+
+	Tile * t_tile2;
+
 };
