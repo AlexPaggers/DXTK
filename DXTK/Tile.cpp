@@ -21,16 +21,19 @@ Tile::~Tile()
 	m_texture.Reset();
 	m_sprite = nullptr;
 	delete m_sprite;
+
 }
 
 void Tile::CreateSprite(ID3D11Device * _device)
 {
-	std::wstring _filepath = (L"E:/DXTK/DXTK/DXTK/Textures/" + std::to_wstring(m_tileID) + L".dds");
+	std::wstring _filepath = (L"Textures/" + std::to_wstring(m_tileID) + L".dds");
 
 	m_sprite = new Sprite(_filepath.c_str(), _device);
+
 }
 
 ID3D11ShaderResourceView * Tile::GetTexture()
 {
 	return m_sprite->getResourceView();
+
 }
