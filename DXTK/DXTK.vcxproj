@@ -162,6 +162,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StepTimer.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -180,6 +181,7 @@
     </ClCompile>
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

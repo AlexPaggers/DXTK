@@ -34,6 +34,9 @@
     <ClInclude Include="Sprite.h">
       <Filter>Classes\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="TileManager.h">
+      <Filter>Classes\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -49,6 +52,9 @@
       <Filter>Classes\Sources</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
+      <Filter>Classes\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TileManager.cpp">
       <Filter>Classes\Sources</Filter>
     </ClCompile>
   </ItemGroup>

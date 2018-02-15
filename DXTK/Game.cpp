@@ -15,8 +15,8 @@ using Microsoft::WRL::ComPtr;
 
 Game::Game() :
     m_window(nullptr),
-    m_outputWidth(800),
-    m_outputHeight(600),
+    m_outputWidth(1000),
+    m_outputHeight(1000),
     m_featureLevel(D3D_FEATURE_LEVEL_9_1)
 {
 }
@@ -171,8 +171,8 @@ void Game::OnWindowSizeChanged(int width, int height)
 void Game::GetDefaultSize(int& width, int& height) const
 {
     // TODO: Change to desired default window size (note minimum size is 320x200).
-    width = 800;
-    height = 600;
+    width = 1000;
+    height = 1000;
 }
 
 // These are the resources that depend on the device.

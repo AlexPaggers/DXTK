@@ -10,6 +10,7 @@ enum TileID
 {
 	GRASS = 0,
 	ROCK = 1,
+	WATER = 2,
 	TREE = 3,
 
 };

@@ -1,9 +1,13 @@
-d:\dxtk\dxtk\x64\debug\dxtk.pch
 d:\dxtk\dxtk\x64\debug\vc140.pdb
+d:\dxtk\dxtk\x64\debug\dxtk.pch
 d:\dxtk\dxtk\x64\debug\vc140.idb
 d:\dxtk\dxtk\x64\debug\pch.obj
+d:\dxtk\dxtk\x64\debug\camera.obj
+d:\dxtk\dxtk\x64\debug\gameobject.obj
 d:\dxtk\dxtk\x64\debug\game.obj
 d:\dxtk\dxtk\x64\debug\main.obj
+d:\dxtk\dxtk\x64\debug\sprite.obj
+d:\dxtk\dxtk\x64\debug\tile.obj
 d:\dxtk\x64\debug\dxtk.lib
 d:\dxtk\x64\debug\dxtk.exp
 d:\dxtk\x64\debug\dxtk.ilk
