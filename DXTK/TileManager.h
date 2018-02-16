@@ -19,12 +19,14 @@ public:
 
 	std::vector<Tile*> returnTiles() { return m_tiles; }
 
+	void smoothen(int _factor);
+
 
 private:
 	
 	std::vector<Tile*> m_tiles;
 
-	int m_boardWidth, m_boardHeight, m_tileSize;
+	int m_boardWidth, m_boardHeight, m_tileSize = 8;
 
 };
 

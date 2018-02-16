@@ -1,9 +1,4 @@
-﻿  TileManager.cpp
-e:\dxtk\dxtk\dxtk\tilemanager.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-e:\dxtk\dxtk\dxtk\tilemanager.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-e:\dxtk\dxtk\dxtk\tilemanager.cpp(33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Game.cpp
+﻿  Game.cpp
   c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Generating Code...
   DXTK.vcxproj -> E:\DXTK\DXTK\x64\Debug\DXTK.exe
   DXTK.vcxproj -> E:\DXTK\DXTK\x64\Debug\DXTK.pdb (Full PDB)
