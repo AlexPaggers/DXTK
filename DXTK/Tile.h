@@ -24,6 +24,8 @@ public:
 
 	void CreateSprite(ID3D11Device * _device);
 
+	int getTileID() { return m_tileID; }
+
 	ID3D11ShaderResourceView* GetTexture();
 
 private:

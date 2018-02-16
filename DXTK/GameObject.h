@@ -9,7 +9,7 @@ using namespace DirectX::SimpleMath;
 
 class Camera;
 struct ID3D11DeviceContext;
-struct GameData;
+class GameData;
 
 
 class GameObject

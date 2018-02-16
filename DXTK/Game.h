@@ -13,6 +13,7 @@
 #include <vector>
 
 class Tile;
+class TileManager;
 
 // A basic game implementation that creates a D3D11 device and
 // provides a game loop.
@@ -70,13 +71,12 @@ private:
 	std::vector<Tile*> m_GameObjects;
 
 	Camera * m_cam;
-
-	std::unique_ptr<SpriteBatch> m_spriteBatch;
+	TileManager * m_tileManager;
 
 	Tile * t_tile;
 
-	Tile * t_tile1;
+	std::unique_ptr<SpriteBatch> m_spriteBatch;
 
-	Tile * t_tile2;
+
 
 };

@@ -6,6 +6,7 @@
 #include "Game.h"
 #include "SimpleMath.h"
 #include "Tile.h"
+#include "TileManager.h"
 
 extern void ExitGame();
 
@@ -45,14 +46,16 @@ void Game::Initialize(HWND window, int width, int height)
 
 	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
 
-	t_tile = new Tile(m_d3dDevice.Get(), 0.0f , 0.0f , 0.0f);
-	m_GameObjects.push_back(t_tile);
+	m_tileManager = new TileManager(m_d3dDevice.Get(), 10, 10);
 
-	t_tile1 = new Tile(m_d3dDevice.Get(), 1.0f, 128.0f, 0.0f);
-	m_GameObjects.push_back(t_tile1);
+	//t_tile = new Tile(m_d3dDevice.Get(), 1.0f , 0.0f , 0.0f);
+	//m_GameObjects.push_back(t_tile);
 
-	t_tile2 = new Tile(m_d3dDevice.Get(), 2.0f, 256.0f, 0.0f);
-	m_GameObjects.push_back(t_tile2);
+	//t_tile1 = new Tile(m_d3dDevice.Get(), 1.0f, 128.0f, 0.0f);
+	//m_GameObjects.push_back(t_tile1);
+
+	//t_tile2 = new Tile(m_d3dDevice.Get(), 2.0f, 256.0f, 0.0f);
+	//m_GameObjects.push_back(t_tile2);
 
 }
 

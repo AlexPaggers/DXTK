@@ -6,7 +6,7 @@
 using namespace DirectX;
 
 
-struct GameData
+class GameData
 {
 	float m_dt;  //time step since last frame
 
