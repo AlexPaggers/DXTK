@@ -4,7 +4,7 @@
 #include "Sprite.h"
 #include <string>
 
-Tile::Tile(ID3D11Device * _device, int _tileID, float _posX, float _posY)
+Tile::Tile(int _index, ID3D11Device * _device, int _tileID, float _posX, float _posY)
 {
 	m_pos.x = _posX;
 	m_pos.y = _posY;

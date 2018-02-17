@@ -19,7 +19,7 @@ class Tile :
 	public GameObject
 {
 public:
-	Tile(ID3D11Device * _device, int _tileID, float _posX, float _posY);
+	Tile(int _index, ID3D11Device * _device, int _tileID, float _posX, float _posY);
 	~Tile();
 
 	void CreateSprite(ID3D11Device * _device);
@@ -33,7 +33,8 @@ private:
 	
 	Sprite * m_sprite;
 
-	int m_tileID;
+
+	int m_tileID, m_index;
 
 	D3D11_TEXTURE2D_DESC desc;
 };
