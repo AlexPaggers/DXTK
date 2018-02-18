@@ -26,6 +26,8 @@ TileManager::~TileManager()
 
 void TileManager::CreateTiles(ID3D11Device * _device)
 {
+	int _index = 0;
+
 	for (int y = 0; y < m_boardHeight; y++)
 	{
 		for (int x = 0; x < m_boardWidth; x++)
@@ -35,7 +37,8 @@ void TileManager::CreateTiles(ID3D11Device * _device)
 
 			if (_tempRand > 0.5)
 			{
-				m_tiles.push_back(new Tile(_device, 0.0f, x * m_tileSize, y * m_tileSize));
+				m_tiles.push_back(new Tile(_index , _device, 0.0f, x * m_tileSize, y * m_tileSize));
+				_index++;
 			}
 			
 		}
