@@ -46,7 +46,7 @@ void Game::Initialize(HWND window, int width, int height)
 
 	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
 
-	m_tileManager = new TileManager(m_d3dDevice.Get(), 120, 120);
+	m_tileManager = new TileManager(m_d3dDevice.Get(), 100, 100);
 	
 	for (auto& tile : m_tileManager->returnTiles())
 	{

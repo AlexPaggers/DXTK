@@ -25,7 +25,8 @@ Sprite::~Sprite()
 }
 
 
-ID3D11ShaderResourceView* Sprite::getResourceView() const
+ID3D11ShaderResourceView* Sprite
+::getResourceView() const
 {
 	return m_sprite_rv;
 }

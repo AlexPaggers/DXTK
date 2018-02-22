@@ -28,11 +28,11 @@ public:
 
 	ID3D11ShaderResourceView* GetTexture();
 
+
 private:
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
 	
 	Sprite * m_sprite;
-
 
 	int m_tileID, m_index;
 
