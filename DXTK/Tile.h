@@ -24,7 +24,11 @@ public:
 
 	void CreateSprite(ID3D11Device * _device);
 
-	int getTileID() { return m_tileID; }
+	int getTileID()				{ return m_tileID; }
+	void SetTileID(int _ID)		{ m_tileID = _ID; }
+	void SetTempID(int _ID)		{ m_tempTileID = _ID; }
+
+	void UpdateTile()			{ m_tileID = m_tempTileID; }
 
 	ID3D11ShaderResourceView* GetTexture();
 
@@ -34,7 +38,9 @@ private:
 	
 	Sprite * m_sprite;
 
-	int m_tileID, m_index;
+	int m_tileID;
+	int m_tempTileID;
+	int m_index;
 
 	D3D11_TEXTURE2D_DESC desc;
 };

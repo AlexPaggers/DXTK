@@ -26,8 +26,10 @@ Tile::~Tile()
 
 void Tile::CreateSprite(ID3D11Device * _device)
 {
-	std::wstring _filepath = (L"Textures/" + std::to_wstring(m_tileID) + L".dds");
+	//std::wstring _filepath = (L"Textures/" + std::to_wstring(m_tileID) + L".dds");
 
+	std::wstring _filepath = (L"Textures/" + std::to_wstring(0) + L".dds");
+	
 	m_sprite = new Sprite(_filepath.c_str(), _device);
 
 }

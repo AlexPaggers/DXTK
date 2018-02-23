@@ -23,7 +23,7 @@ public:
 
 
 private:
-	
+
 	std::vector<Tile*> m_tiles;
 
 	int m_boardWidth, m_boardHeight, m_tileSize = 8;

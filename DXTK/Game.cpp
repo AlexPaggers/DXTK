@@ -46,7 +46,7 @@ void Game::Initialize(HWND window, int width, int height)
 
 	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
 
-	m_tileManager = new TileManager(m_d3dDevice.Get(), 100, 100);
+	m_tileManager = new TileManager(m_d3dDevice.Get(), 120, 120);
 	
 	for (auto& tile : m_tileManager->returnTiles())
 	{
@@ -104,7 +104,10 @@ void Game::Render()
 
 	for (auto& tile : m_GameObjects)
 	{
-		m_spriteBatch->Draw(tile->GetTexture(), tile->GetPos());
+		if (tile->getTileID() != 2)
+		{
+			m_spriteBatch->Draw(tile->GetTexture(), tile->GetPos());
+		}
 	}
 
 	m_spriteBatch->End();

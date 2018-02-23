@@ -48,13 +48,99 @@ void TileManager::CreateTiles(ID3D11Device * _device)
 			
 		}
 	}
+
+	smoothen(100);
+
 }
 
 void TileManager::smoothen(int _factor)
 {
-	for (auto& tile : m_tiles)
+	for (int _loops = 0; _loops < _factor; _loops++)
 	{
-		delete tile;
-		tile = nullptr;
+		for (int _index = 0; _index < m_tiles.size(); _index++)
+		{
+			if (_index > m_boardWidth &&
+				_index < (m_boardHeight * m_boardWidth) - m_boardWidth)
+			{
+				int _activeSurroundingTiles = 0;
+
+				if (m_tiles[_index - m_boardWidth]->getTileID() != 2) //Checking up
+				{
+					_activeSurroundingTiles++;
+				}
+
+				if (m_tiles[_index + m_boardWidth]->getTileID() != 2) //Checking down
+				{
+					_activeSurroundingTiles++;
+				}
+
+				if (m_tiles[_index - 1]->getTileID() != 2) //Checking left
+				{
+					_activeSurroundingTiles++;
+				}
+
+				if (m_tiles[_index + 1]->getTileID() != 2) //Checking right
+				{
+					_activeSurroundingTiles++;
+				}
+
+				float _tempRand = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+
+				switch (_activeSurroundingTiles)
+				{
+				case 0: if (_tempRand < 0.00f)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				case 1: if (_tempRand < 0.25f)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				case 2: if (_tempRand < 0.50f)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				case 3: if (_tempRand < 0.75f)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				case 4: if (_tempRand < 1)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				}
+
+			}
+		}
+
+		for (int _index = 0; _index < m_tiles.size(); _index++)
+		{
+			m_tiles[_index]->UpdateTile();
+		}
 	}
 }
