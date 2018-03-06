@@ -7,6 +7,7 @@
 #include "SimpleMath.h"
 #include "Tile.h"
 #include "TileManager.h"
+#include <AntTweakBar.h>
 
 extern void ExitGame();
 
