@@ -8,12 +8,67 @@
 #include "Tile.h"
 #include "TileManager.h"
 #include <AntTweakBar.h>
+#include <Windows.h>
+#include <ShObjIdl.h>
+
 
 extern void ExitGame();
 
 using namespace DirectX;
 
 using Microsoft::WRL::ComPtr;
+
+void TW_CALL tileManagerSmoothenCB(void * clientData)
+{
+	Game * game = static_cast<Game*>(clientData);
+	game->TileManagerSmoothen();
+}
+
+void Game::TileManagerSmoothen()
+{
+	m_tileManager->smoothen(m_smoothnessFactor);
+
+}
+
+void TW_CALL tileManagerRecreateCB(void * clientData)
+{
+	Game * game = static_cast<Game*>(clientData);
+	game->TileManagerRecreate();
+}
+
+void Game::TileManagerRecreate()
+{
+	m_tileManager->ReCreateTiles(m_d3dDevice.Get());
+}
+
+void TW_CALL tileManagerSaveLevelCB(void * clientData)
+{
+	Game * game = static_cast<Game*>(clientData);
+	game->TileManagerSaveLevel();
+}
+
+void Game::TileManagerSaveLevel()
+{
+	m_tileManager->SaveLevel("Levels/" + m_savepath + ".txt");
+}
+
+void TW_CALL tileManagerLoadLevelCB(void * clientData)
+{
+	Game * game = static_cast<Game*>(clientData);
+	game->TileManagerLoadLevel();
+}
+
+void Game::TileManagerLoadLevel()
+{
+	m_tileManager->LoadLevel(m_loadpath);
+}
+
+void TW_CALL CopyStdStringToClient(std::string& destinationClientString, const std::string& sourceLibraryString)
+{
+	// Copy the content of souceString handled by the AntTweakBar library to destinationClientString handled by your application
+	destinationClientString = sourceLibraryString;
+}
+
 
 Game::Game() :
     m_window(nullptr),
@@ -48,7 +103,9 @@ void Game::Initialize(HWND window, int width, int height)
 	m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
 
 	m_tileManager = new TileManager(m_d3dDevice.Get(), 120, 120);
-	
+
+
+
 	for (auto& tile : m_tileManager->returnTiles())
 	{
 		m_GameObjects.push_back(tile);
@@ -65,6 +122,21 @@ void Game::Initialize(HWND window, int width, int height)
 
 	//t_tile2 = new Tile(m_d3dDevice.Get(), 2.0f, 256.0f, 0.0f);
 	//m_GameObjects.push_back(t_tile2);
+
+	TwInit(TW_DIRECT3D11, m_d3dDevice.Get());
+	TwWindowSize(width, height);
+
+	TwCopyStdStringToClientFunc(CopyStdStringToClient); // CopyStdStringToClient implementation is given above
+
+	m_tweakBar = TwNewBar("Settings");
+	TwAddVarRW(m_tweakBar, "Smoothness Factor", TW_TYPE_INT8, &m_smoothnessFactor, NULL);
+	TwAddButton(m_tweakBar, "Smoothen", tileManagerSmoothenCB, this, NULL);
+	TwAddButton(m_tweakBar, "Re-Generate Map", tileManagerRecreateCB, this, NULL);
+	TwAddVarRW(m_tweakBar, "Save Level name", TW_TYPE_STDSTRING, &m_savepath, "");
+	TwAddButton(m_tweakBar, "Save", tileManagerSaveLevelCB, this, NULL);
+	TwAddVarRW(m_tweakBar, "Load Level name", TW_TYPE_STDSTRING, &m_loadpath, "");
+	TwAddButton(m_tweakBar, "Load", tileManagerLoadLevelCB, this, NULL);
+
 
 }
 
@@ -113,6 +185,8 @@ void Game::Render()
 
 	m_spriteBatch->End();
 
+
+	TwDraw();
     Present();
 }
 

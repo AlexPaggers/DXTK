@@ -11,6 +11,8 @@
 #include "SpriteBatch.h"
 
 #include <vector>
+#include <AntTweakBar.h>
+#include <String>
 
 class Tile;
 class TileManager;
@@ -38,6 +40,12 @@ public:
 
     // Properties
     void GetDefaultSize( int& width, int& height ) const;
+
+	// Callbacks
+	void TileManagerSmoothen();
+	void TileManagerRecreate();
+	void TileManagerSaveLevel();
+	void TileManagerLoadLevel();
 
 private:
 
@@ -74,9 +82,12 @@ private:
 	TileManager * m_tileManager;
 
 	Tile * t_tile;
+	TwBar * m_tweakBar;
 
 	std::unique_ptr<SpriteBatch> m_spriteBatch;
 
+	int m_smoothnessFactor = 1;
 
-
+	std::string m_loadpath;
+	std::string m_savepath = "Level";
 };

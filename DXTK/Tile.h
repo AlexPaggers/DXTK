@@ -39,7 +39,7 @@ private:
 	Sprite * m_sprite;
 
 	int m_tileID;
-	int m_tempTileID;
+	int m_tempTileID = 0;
 	int m_index;
 
 	D3D11_TEXTURE2D_DESC desc;

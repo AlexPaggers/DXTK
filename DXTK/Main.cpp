@@ -14,6 +14,9 @@ namespace
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
+
+
+
 // Indicates to hybrid graphics systems to prefer the discrete part by default
 extern "C"
 {
@@ -90,7 +93,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     MSG msg = {};
     while (WM_QUIT != msg.message)
     {
-        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        
+		
+		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
@@ -111,7 +116,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 // Windows procedure
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    PAINTSTRUCT ps;
+	if (TwEventWin(hWnd, message, wParam, lParam)) // send event message to AntTweakBar
+		return 0; // event has been handled by AntTweakBar
+				  // else process the event message
+				  // ...
+	
+	PAINTSTRUCT ps;
     HDC hdc;
 
     static bool s_in_sizemove = false;
