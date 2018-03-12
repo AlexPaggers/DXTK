@@ -1,4 +1,4 @@
-﻿Build started 09/03/2018 05:54:26.
+﻿Build started 12/03/2018 20:11:06.
      1>Project "D:\DXTK\DXTK\DXTK.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\CL.exe /c /ID:\DXTK\packages\directxtk_desktop_2015.2017.12.13.1\build\native\../..//build/native/include/ /ZI /nologo /W3 /WX- /Od /D HAS_DIRECTXTK /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"pch.h" /Fp"x64\Debug\DXTK.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt TileManager.cpp

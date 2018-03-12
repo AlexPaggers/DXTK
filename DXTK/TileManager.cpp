@@ -101,7 +101,7 @@ void TileManager::CreateTiles(ID3D11Device * _device)
 		}
 	}
 
-	smoothen(0);
+	smoothen(10);
 
 }
 
@@ -137,7 +137,10 @@ void TileManager::smoothen(int _factor)
 		for (int _index = 0; _index < m_tiles.size(); _index++)
 		{
 			if (_index > m_boardWidth &&
-				_index < (m_boardHeight * m_boardWidth) - m_boardWidth)
+				_index < (m_boardHeight * m_boardWidth) - m_boardWidth 
+				&& _index % m_boardWidth != 0 
+				&&	_index % m_boardWidth != m_boardWidth - 1
+				)
 			{
 				int _activeSurroundingTiles = 0;
 
@@ -146,7 +149,27 @@ void TileManager::smoothen(int _factor)
 					_activeSurroundingTiles++;
 				}
 
+				if (m_tiles[_index - m_boardWidth - 1]->getTileID() != 2) //Checking up - Left
+				{
+					_activeSurroundingTiles++;
+				}
+
+				if (m_tiles[_index - m_boardWidth + 1]->getTileID() != 2) //Checking up - Right
+				{
+					_activeSurroundingTiles++;
+				}
+
 				if (m_tiles[_index + m_boardWidth]->getTileID() != 2) //Checking down
+				{
+					_activeSurroundingTiles++;
+				}
+
+				if (m_tiles[_index + m_boardWidth - 1]->getTileID() != 2) //Checking down - Left
+				{
+					_activeSurroundingTiles++;
+				}
+
+				if (m_tiles[_index + m_boardWidth + 1]->getTileID() != 2) //Checking down - Right
 				{
 					_activeSurroundingTiles++;
 				}
@@ -161,11 +184,13 @@ void TileManager::smoothen(int _factor)
 					_activeSurroundingTiles++;
 				}
 
+
+
 				float _tempRand = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 
 				switch (_activeSurroundingTiles)
 				{
-				case 0: if (_tempRand < 0.00f && m_tiles[_index]->getTileID() == 0)
+				case 0: if (_tempRand < 0.00f)
 				{
 					m_tiles[_index]->SetTempID(0);
 				}
@@ -174,7 +199,7 @@ void TileManager::smoothen(int _factor)
 							m_tiles[_index]->SetTempID(2);
 						}
 						break;
-				case 1: if (_tempRand < 0.25f)
+				case 1: if (_tempRand < 0.175f)
 				{
 					m_tiles[_index]->SetTempID(0);
 				}
@@ -183,7 +208,7 @@ void TileManager::smoothen(int _factor)
 							m_tiles[_index]->SetTempID(2);
 						}
 						break;
-				case 2: if (_tempRand < 0.50f)
+				case 2: if (_tempRand < 0.25f)
 				{
 					m_tiles[_index]->SetTempID(0);
 				}
@@ -192,7 +217,7 @@ void TileManager::smoothen(int _factor)
 							m_tiles[_index]->SetTempID(2);
 						}
 						break;
-				case 3: if (_tempRand < 0.75f)
+				case 3: if (_tempRand < 0.375f)
 				{
 					m_tiles[_index]->SetTempID(0);
 				}
@@ -201,7 +226,7 @@ void TileManager::smoothen(int _factor)
 							m_tiles[_index]->SetTempID(2);
 						}
 						break;
-				case 4: if (_tempRand < 1)
+				case 4: if (_tempRand < 0.5f)
 				{
 					m_tiles[_index]->SetTempID(0);
 				}
@@ -210,14 +235,52 @@ void TileManager::smoothen(int _factor)
 							m_tiles[_index]->SetTempID(2);
 						}
 						break;
+				case 5: if (_tempRand < 0.675f)
+				{
+					m_tiles[_index]->SetTempID(0);
 				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				case 6: if (_tempRand < 0.75f)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				case 7: if (_tempRand < 0.825f)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
+				case 8: if (_tempRand < 1.0f)
+				{
+					m_tiles[_index]->SetTempID(0);
+				}
+						else
+						{
+							m_tiles[_index]->SetTempID(2);
+						}
+						break;
 
+				}
 			}
-		}
 
-		for (int _index = 0; _index < m_tiles.size(); _index++)
-		{
-			m_tiles[_index]->UpdateTile();
 		}
 	}
+
+	for (int _index = 0; _index < m_tiles.size(); _index++)
+	{
+		m_tiles[_index]->UpdateTile();
+	}
+
 }
